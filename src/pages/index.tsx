@@ -2,6 +2,8 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "components/Header";
 import MainVisual from "components/MainVisual";
+import ProfileSection from "components/ProfileSection";
+import YouTubeSection from "components/YouTubeSection";
 import styles from "./Home.module.scss";
 
 const Home: NextPage = () => {
@@ -15,6 +17,8 @@ const Home: NextPage = () => {
       <Header />
       <main>
         <MainVisual />
+        <ProfileSection />
+        <YouTubeSection />
       </main>
     </div>
   );

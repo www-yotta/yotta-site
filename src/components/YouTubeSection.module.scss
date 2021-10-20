@@ -1,0 +1,28 @@
+.root {
+  font-size: 14px;
+}
+.title {
+  text-align: center;
+  font-size: 21px;
+}
+.youtubeContent {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.youtubeItem {
+  width: 320px;
+}
+.linkWrap {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+.youtubeLink {
+  width: 490px;
+  height: 40px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
