@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import styles from "./Home.module.scss";
 import Header from "components/Header";
 import MainVisual from "components/MainVisual";
 import ProfileSection from "components/ProfileSection";
 import YouTubeSection from "components/YouTubeSection";
-import styles from "./Home.module.scss";
+import WorkSection from "components/WorkSection";
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
         <MainVisual />
         <ProfileSection />
         <YouTubeSection />
+        <WorkSection />
       </main>
     </div>
   );

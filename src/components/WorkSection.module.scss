@@ -1,0 +1,27 @@
+.root {
+  font-size: 14px;
+}
+.title {
+  text-align: center;
+  font-size: 21px;
+}
+.workContent {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.workItem {
+  width: 320px;
+  height: 320px;
+  border: 1px solid;
+}
+
+.workLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  border: 1px solid;
+}
