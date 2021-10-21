@@ -6,6 +6,7 @@ import MainVisual from "components/MainVisual";
 import ProfileSection from "components/ProfileSection";
 import YouTubeSection from "components/YouTubeSection";
 import WorkSection from "components/WorkSection";
+import BlogSection from "components/BlogSection";
 
 const Home: NextPage = () => {
   return (
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
         <ProfileSection />
         <YouTubeSection />
         <WorkSection />
+        <BlogSection />
       </main>
     </div>
   );
