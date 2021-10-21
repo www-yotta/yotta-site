@@ -7,6 +7,7 @@ import ProfileSection from "components/ProfileSection";
 import YouTubeSection from "components/YouTubeSection";
 import WorkSection from "components/WorkSection";
 import BlogSection from "components/BlogSection";
+import ContactSection from "components/ContactSection";
 
 const Home: NextPage = () => {
   return (
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
         <YouTubeSection />
         <WorkSection />
         <BlogSection />
+        <ContactSection />
       </main>
     </div>
   );
