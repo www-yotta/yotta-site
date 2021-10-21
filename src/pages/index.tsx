@@ -8,6 +8,7 @@ import YouTubeSection from "components/YouTubeSection";
 import WorkSection from "components/WorkSection";
 import BlogSection from "components/BlogSection";
 import ContactSection from "components/ContactSection";
+import Footer from "components/Footer";
 
 const Home: NextPage = () => {
   return (
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
         <BlogSection />
         <ContactSection />
       </main>
+      <Footer />
     </div>
   );
 };
