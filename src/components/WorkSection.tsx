@@ -5,11 +5,12 @@ import styles from "./WorkSection.module.scss";
 import { PortfolioData } from "types/api";
 
 type WorkSection = {
+  id: string;
   data: PortfolioData[];
 };
-const WorkSection: FC<WorkSection> = ({ data }) => {
+const WorkSection: FC<WorkSection> = ({ data, ...props }) => {
   return (
-    <section className={styles.root}>
+    <section className={styles.root} {...props}>
       <h2 className={styles.title}>お仕事</h2>
       <p className={styles.description}>
         お仕事としてフロントエンドエンジニアもしています。

@@ -1,8 +1,11 @@
-import { NextPage } from "next";
+import { FC } from "react";
 import styles from "./ContactSection.module.scss";
 import { useForm } from "react-hook-form";
 
-const ContactSection: NextPage = () => {
+type ContactSectionProps = {
+  id: string;
+};
+const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
   const { register, handleSubmit, reset } = useForm();
 
   const handleRequset = (forms: any) => {
@@ -37,7 +40,7 @@ const ContactSection: NextPage = () => {
   };
 
   return (
-    <section className={styles.root}>
+    <section className={styles.root} {...props}>
       <h2 className={styles.title}>お問い合わせ</h2>
       <p className={styles.sub}>
         お仕事の依頼などありましたら下記フォームからご連絡ください。

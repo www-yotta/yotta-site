@@ -4,11 +4,12 @@ import styles from "./YouTubeSection.module.scss";
 import { YoutubeData } from "types/api";
 
 type YoutubeSectionProps = {
+  id: string;
   data: YoutubeData[];
 };
-const YoutubeSection: FC<YoutubeSectionProps> = ({ data }) => {
+const YoutubeSection: FC<YoutubeSectionProps> = ({ data, ...props }) => {
   return (
-    <section className={styles.root}>
+    <section className={styles.root} {...props}>
       <h2 className={styles.title}>YouTube</h2>
       <p className={styles.description}>
         ゲーム実況をメインで活動しており、2Dゲームを中心に配信しています。3D酔いをしてしまうので、

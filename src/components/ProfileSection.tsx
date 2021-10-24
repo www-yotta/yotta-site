@@ -1,11 +1,14 @@
-import { NextPage } from "next";
+import { FC } from "react";
 import Image from "next/image";
 import yottaStand from "images/yotta_stand.png";
 import styles from "./ProfileSection.module.scss";
 
-const Profile: NextPage = () => {
+type ProfileSectionProps = {
+  id: string;
+};
+const ProfileSection: FC<ProfileSectionProps> = ({ ...props }) => {
   return (
-    <section className={styles.root}>
+    <section className={styles.root} {...props}>
       <h2 className={styles.title}>Profile</h2>
       <div className={styles.profileInner}>
         <div className={styles.image}>
@@ -38,4 +41,4 @@ const Profile: NextPage = () => {
   );
 };
 
-export default Profile;
+export default ProfileSection;

@@ -33,11 +33,11 @@ const Home: NextPage<HomeProps> = ({
       <main>
         <Header />
         <MainVisual />
-        <ProfileSection />
-        <YouTubeSection data={youtubeData.contents} />
-        <WorkSection data={portfolioData.contents} />
-        <BlogSection data={blogData.contents} />
-        <ContactSection />
+        <ProfileSection id="profile" />
+        <YouTubeSection id="youtube" data={youtubeData.contents} />
+        <WorkSection id="work" data={portfolioData.contents} />
+        <BlogSection id="blog" data={blogData.contents} />
+        <ContactSection id="contact" />
       </main>
       <Footer />
     </div>
