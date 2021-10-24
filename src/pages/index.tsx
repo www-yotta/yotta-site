@@ -9,21 +9,14 @@ import WorkSection from "components/WorkSection";
 import BlogSection from "components/BlogSection";
 import ContactSection from "components/ContactSection";
 import Footer from "components/Footer";
+import { BlogData, PortfolioData } from "types/api";
 import { MicroCMSContents } from "types/microcms";
 
-type HomeProps = {
-  blogData: MicroCMSContents<{
-    title: string;
-    body: string;
-    image?: {
-      height: number;
-      width: number;
-      url: string;
-    };
-  }>;
+export type HomeProps = {
+  blogData: MicroCMSContents<BlogData>;
+  portfolioData: MicroCMSContents<PortfolioData>;
 };
-const Home: NextPage<HomeProps> = ({ blogData }) => {
-  console.log("blogData", blogData);
+const Home: NextPage<HomeProps> = ({ blogData, portfolioData }) => {
   return (
     <div className={styles.root}>
       <Head>
@@ -36,7 +29,7 @@ const Home: NextPage<HomeProps> = ({ blogData }) => {
         <MainVisual />
         <ProfileSection />
         <YouTubeSection />
-        <WorkSection />
+        <WorkSection data={portfolioData.contents} />
         <BlogSection />
         <ContactSection />
       </main>
@@ -45,18 +38,28 @@ const Home: NextPage<HomeProps> = ({ blogData }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+const fetcher = (content: string, limit?: number) => {
   const WRITE_API_KEY = process.env.NEXT_PUBLIC_GET_BLOG_API_KEY
     ? process.env.NEXT_PUBLIC_GET_BLOG_API_KEY
     : "";
-  const blogData = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/blog`, {
-    headers: {
-      "Content-Type": "application/json",
-      "X-MICROCMS-API-KEY": WRITE_API_KEY,
-    },
-  }).then((r) => r.json());
+  const data = fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}${content}?limit=${limit}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        "X-MICROCMS-API-KEY": WRITE_API_KEY,
+      },
+    }
+  ).then((r) => r.json());
+  return data;
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const blogData = await fetcher("/blog", 3);
+  const portfolioData = await fetcher("/works", 3);
+
   return {
-    props: { blogData },
+    props: { blogData, portfolioData },
   };
 };
 

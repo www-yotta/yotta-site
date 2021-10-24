@@ -1,27 +1,74 @@
 .root {
   font-size: 14px;
+  margin-bottom: 40px;
 }
 .title {
   text-align: center;
   font-size: 21px;
+  margin-bottom: 8px;
 }
-.workContent {
+.description {
+  text-align: center;
+}
+.work {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  margin: 20px 0;
+  &Item {
+    width: 320px;
+    height: 320px;
+    border: 1px solid;
+    position: relative;
+    &Description {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      top: 0;
+      transition: 0.5s;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      font-size: 14px;
+      padding: 24px;
+      & p {
+        text-align: center;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+        line-height: 1.5;
+        margin: 12px 0;
+      }
+    }
+    &Description:hover {
+      opacity: 1;
+    }
+    &Title {
+      font-size: 18px;
+    }
+    &Link {
+      display: flex;
+      text-decoration: underline;
+      & a + a {
+        margin-left: 2rem;
+      }
+    }
+  }
 }
-.workItem {
-  width: 320px;
-  height: 320px;
-  border: 1px solid;
-}
-
-.workLink {
+.allViewLink {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 40px;
   border: 1px solid;
+  &:hover {
+    background-color: rgba(112, 118, 148, 0.5);
+  }
 }
