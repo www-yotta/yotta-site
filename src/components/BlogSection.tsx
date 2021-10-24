@@ -34,7 +34,7 @@ const BlogSection: FC<BLogSectionProps> = ({ data }) => {
                   }}
                 ></div>
                 <div className={styles.blogItemFooter}>
-                  <Link href="">
+                  <Link href={`/blog/${item.id}`}>
                     <a className={styles.blogItemLink}>詳細を見る</a>
                   </Link>
                 </div>
