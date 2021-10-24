@@ -53,9 +53,9 @@ const ContactSection: NextPage = () => {
         </div>
         <div className={styles.inputGroup}>
           <label htmlFor="body">内容</label>
-          <textarea id="body" {...register("body")}></textarea>
+          <textarea id="body" {...register("body")} rows={10}></textarea>
         </div>
-        <div onClick={handleSubmit(handleRequset)}>
+        <div className={styles.submit} onClick={handleSubmit(handleRequset)}>
           <span>送信</span>
         </div>
       </div>
