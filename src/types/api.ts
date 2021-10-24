@@ -7,7 +7,7 @@ export type BlogData = {
   id: string;
   title: string;
   body: string;
-  image?: ImageProps;
+  image: ImageProps;
 };
 export type PortfolioData = {
   id: string;

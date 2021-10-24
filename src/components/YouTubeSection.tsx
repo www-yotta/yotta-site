@@ -1,6 +1,5 @@
 import { FC } from "react";
 import Link from "next/link";
-import yottaStand from "images/yotta_stand.png";
 import styles from "./YouTubeSection.module.scss";
 import { YoutubeData } from "types/api";
 

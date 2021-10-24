@@ -35,7 +35,7 @@ const Home: NextPage<HomeProps> = ({
         <ProfileSection />
         <YouTubeSection data={youtubeData.contents} />
         <WorkSection data={portfolioData.contents} />
-        <BlogSection />
+        <BlogSection data={blogData.contents} />
         <ContactSection />
       </main>
       <Footer />
