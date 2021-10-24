@@ -16,3 +16,8 @@ export type PortfolioData = {
   image: ImageProps;
   url?: string;
 };
+export type YoutubeData = {
+  id: string;
+  movieId: string;
+  memo: string;
+};

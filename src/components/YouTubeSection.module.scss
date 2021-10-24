@@ -1,14 +1,20 @@
 .root {
   font-size: 14px;
+  margin-bottom: 40px;
 }
 .title {
   text-align: center;
   font-size: 21px;
+  margin-bottom: 8px;
+}
+.description {
+  text-align: center;
 }
 .youtubeContent {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  margin: 20px 0;
 }
 .youtubeItem {
   width: 320px;
@@ -25,4 +31,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  &:hover {
+    background-color: rgba(112, 118, 148, 0.5);
+  }
 }

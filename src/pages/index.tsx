@@ -9,14 +9,19 @@ import WorkSection from "components/WorkSection";
 import BlogSection from "components/BlogSection";
 import ContactSection from "components/ContactSection";
 import Footer from "components/Footer";
-import { BlogData, PortfolioData } from "types/api";
+import { BlogData, PortfolioData, YoutubeData } from "types/api";
 import { MicroCMSContents } from "types/microcms";
 
 export type HomeProps = {
   blogData: MicroCMSContents<BlogData>;
   portfolioData: MicroCMSContents<PortfolioData>;
+  youtubeData: MicroCMSContents<YoutubeData>;
 };
-const Home: NextPage<HomeProps> = ({ blogData, portfolioData }) => {
+const Home: NextPage<HomeProps> = ({
+  blogData,
+  portfolioData,
+  youtubeData,
+}) => {
   return (
     <div className={styles.root}>
       <Head>
@@ -28,7 +33,7 @@ const Home: NextPage<HomeProps> = ({ blogData, portfolioData }) => {
       <main>
         <MainVisual />
         <ProfileSection />
-        <YouTubeSection />
+        <YouTubeSection data={youtubeData.contents} />
         <WorkSection data={portfolioData.contents} />
         <BlogSection />
         <ContactSection />
@@ -57,9 +62,10 @@ const fetcher = (content: string, limit?: number) => {
 export const getStaticProps: GetStaticProps = async () => {
   const blogData = await fetcher("/blog", 3);
   const portfolioData = await fetcher("/works", 3);
+  const youtubeData = await fetcher("/youtube", 6);
 
   return {
-    props: { blogData, portfolioData },
+    props: { blogData, portfolioData, youtubeData },
   };
 };
 
