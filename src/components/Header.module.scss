@@ -3,6 +3,11 @@
   height: 60px;
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
 }
 
 .menu {
