@@ -36,8 +36,8 @@ export const blogMock: Mock[] = [
 export default function handler(_: NextApiRequest, res: NextApiResponse) {
   res.status(200).json({
     contents: blogMock,
-    totalCount: 2,
+    totalCount: blogMock.length,
     offset: 0,
-    limit: 10,
+    limit: 10, // microCMSのデフォルト
   });
 }

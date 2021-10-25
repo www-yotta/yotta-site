@@ -2,11 +2,11 @@ import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./WorkSection.module.scss";
-import { PortfolioData } from "types/api";
+import { WorkData } from "types/api";
 
 type WorkSection = {
   id: string;
-  data: PortfolioData[];
+  data: WorkData[];
 };
 const WorkSection: FC<WorkSection> = ({ data, ...props }) => {
   return (

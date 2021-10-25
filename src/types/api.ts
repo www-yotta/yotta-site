@@ -9,7 +9,7 @@ export type BlogData = {
   body: string;
   image: ImageProps;
 };
-export type PortfolioData = {
+export type WorkData = {
   id: string;
   title: string;
   description: string;

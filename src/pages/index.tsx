@@ -9,20 +9,16 @@ import WorkSection from "components/WorkSection";
 import BlogSection from "components/BlogSection";
 import ContactSection from "components/ContactSection";
 import Footer from "components/Footer";
-import { BlogData, PortfolioData, YoutubeData } from "types/api";
+import { BlogData, WorkData, YoutubeData } from "types/api";
 import { MicroCMSContents } from "types/microcms";
 import { fetcher } from "utils/fetcher";
 
 export type HomeProps = {
   blogData: MicroCMSContents<BlogData>;
-  portfolioData: MicroCMSContents<PortfolioData>;
+  workData: MicroCMSContents<WorkData>;
   youtubeData: MicroCMSContents<YoutubeData>;
 };
-const Home: NextPage<HomeProps> = ({
-  blogData,
-  portfolioData,
-  youtubeData,
-}) => {
+const Home: NextPage<HomeProps> = ({ blogData, workData, youtubeData }) => {
   return (
     <div className={styles.root}>
       <Head>
@@ -35,7 +31,7 @@ const Home: NextPage<HomeProps> = ({
         <MainVisual />
         <ProfileSection id="profile" />
         <YouTubeSection id="youtube" data={youtubeData.contents} />
-        <WorkSection id="work" data={portfolioData.contents} />
+        <WorkSection id="work" data={workData.contents} />
         <BlogSection id="blog" data={blogData.contents} />
         <ContactSection id="contact" />
       </main>
@@ -46,11 +42,11 @@ const Home: NextPage<HomeProps> = ({
 
 export const getStaticProps: GetStaticProps = async () => {
   const blogData = await fetcher("/blog", 3);
-  const portfolioData = await fetcher("/works", 3);
+  const workData = await fetcher("/works", 3);
   const youtubeData = await fetcher("/youtube", 6);
 
   return {
-    props: { blogData, portfolioData, youtubeData },
+    props: { blogData, workData, youtubeData },
   };
 };
 
