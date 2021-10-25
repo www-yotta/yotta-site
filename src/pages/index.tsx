@@ -41,9 +41,9 @@ const Home: NextPage<HomeProps> = ({ blogData, workData, youtubeData }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const blogData = await fetcher("/blog", 3);
-  const workData = await fetcher("/work", 3);
-  const youtubeData = await fetcher("/youtube", 6);
+  const blogData = await fetcher("/blog", { limit: 3 });
+  const workData = await fetcher("/work", { limit: 3 });
+  const youtubeData = await fetcher("/youtube", { limit: 6 });
 
   return {
     props: { blogData, workData, youtubeData },

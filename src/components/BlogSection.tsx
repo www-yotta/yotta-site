@@ -44,7 +44,7 @@ const BlogSection: FC<BLogSectionProps> = ({ data, ...props }) => {
           );
         })}
       </div>
-      <Link href="">
+      <Link href="/blog/page/1">
         <a className={styles.blogListLink}>全て見る</a>
       </Link>
     </section>

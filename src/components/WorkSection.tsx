@@ -51,7 +51,7 @@ const WorkSection: FC<WorkSection> = ({ data, ...props }) => {
           );
         })}
       </div>
-      <Link href="">
+      <Link href="/work/page/1">
         <a className={styles.allViewLink}>全て見る</a>
       </Link>
     </section>
