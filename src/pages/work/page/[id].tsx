@@ -1,11 +1,17 @@
 import { FC } from "react";
+import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import { fetcher } from "utils/fetcher";
 import Pagination from "@mui/material/Pagination";
 import { WorkData } from "types/api";
 import Router from "next/router";
+import styles from "../../Home.module.scss";
+import workStyles from "../../../components/WorkSection.module.scss";
+import Header from "components/Header";
+import Footer from "components/Footer";
 
-const PER_PAGE = 1;
+const PER_PAGE = 9;
 const PAGE_NAME = "work";
 
 type WorkPageIdProps = {
@@ -19,26 +25,60 @@ const WorkPageId: FC<WorkPageIdProps> = ({ blog, count, id }: any) => {
     Router.push(`/${PAGE_NAME}/page/${page}`);
   };
   return (
-    <div>
-      <ul>
-        {blog.map((blog: any) => (
-          <li key={blog.id}>
-            <Link href={`/${PAGE_NAME}/${blog.id}`}>
-              <a>{blog.title}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <Pagination
-        count={count}
-        page={Number(id)}
-        showFirstButton
-        showLastButton
-        onChange={handleClick}
-      />
-      <Link href="/">
-        <a>トップに戻る</a>
-      </Link>
+    <div className={styles.root}>
+      <Head>
+        <title>三波ヨタ|ポートフォリオ {id} ページ目</title>
+        <meta name="description" content="三波ヨタのポートフォリオです。" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main>
+        <Header />
+        <h1>お仕事ポートフォリオ</h1>
+        <div className={workStyles.work}>
+          {blog.map((item: any) => (
+            <div className={workStyles.workItem} key={item.id}>
+              <Image
+                src={item.image.url}
+                width={320}
+                height={320}
+                alt="カスタムオーディオパネルの作品画像"
+                objectFit="cover"
+              />
+              <div className={workStyles.workItemDescription}>
+                <h3 className={workStyles.workItemTitle}>{item.title}</h3>
+                <p>{item.description}</p>
+                <div className={workStyles.workItemLink}>
+                  {item.url && (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      className={workStyles.workItemLink}
+                      rel="noreferrer"
+                    >
+                      作品を見る
+                    </a>
+                  )}
+                  <Link href={`/${PAGE_NAME}/${blog.id}`}>
+                    <a className={workStyles.workItemLink}>詳細を見る</a>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <Pagination
+          count={count}
+          page={Number(id)}
+          showFirstButton
+          showLastButton
+          onChange={handleClick}
+          className={styles.pagination}
+        />
+        <Link href="/">
+          <a>トップに戻る</a>
+        </Link>
+      </main>
+      <Footer />
     </div>
   );
 };
