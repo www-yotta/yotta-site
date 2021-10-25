@@ -42,7 +42,7 @@ const WorkSection: FC<WorkSection> = ({ data, ...props }) => {
                       作品を見る
                     </a>
                   )}
-                  <Link href="">
+                  <Link href={`/work/${item.id}`}>
                     <a className={styles.workItemLink}>詳細を見る</a>
                   </Link>
                 </div>

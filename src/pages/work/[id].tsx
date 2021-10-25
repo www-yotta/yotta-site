@@ -1,11 +1,11 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import { fetcher } from "utils/fetcher";
-import { BlogData } from "types/api";
+import { WorkData } from "types/api";
 import Image from "next/image";
 import Link from "next/link";
 
 type WorkDetailProps = {
-  workData: BlogData;
+  workData: WorkData;
 };
 const WorkDetail: NextPage<WorkDetailProps> = ({ workData }) => {
   return (
@@ -20,9 +20,10 @@ const WorkDetail: NextPage<WorkDetailProps> = ({ workData }) => {
       />
       <div
         dangerouslySetInnerHTML={{
-          __html: `${workData.body}`,
+          __html: `${workData.description}`,
         }}
       ></div>
+      <p>サイト{workData.url}</p>
       <Link href="/">
         <a>トップに戻る</a>
       </Link>
@@ -32,7 +33,7 @@ const WorkDetail: NextPage<WorkDetailProps> = ({ workData }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const workData = await fetcher("/work");
-  const paths = workData.contents.map((item: BlogData) => `/work/${item.id}`);
+  const paths = workData.contents.map((item: WorkData) => `/work/${item.id}`);
   return { paths, fallback: false };
 };
 
