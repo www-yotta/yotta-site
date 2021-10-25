@@ -4,3 +4,10 @@ export type MicroCMSContents<T> = {
   offset: number;
   limit: number;
 };
+
+export type Result = {
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+};

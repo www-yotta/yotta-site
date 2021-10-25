@@ -20,36 +20,34 @@ const WorkSection: FC<WorkSection> = ({ data, ...props }) => {
       <div className={styles.work}>
         {data?.map((item) => {
           return (
-            <>
-              <div className={styles.workItem} key={item.id}>
-                <Image
-                  src={item.image.url}
-                  width={320}
-                  height={320}
-                  alt="カスタムオーディオパネルの作品画像"
-                  objectFit="cover"
-                />
-                <div className={styles.workItemDescription}>
-                  <h3 className={styles.workItemTitle}>{item.title}</h3>
-                  <p>{item.description}</p>
-                  <div className={styles.workItemLink}>
-                    {item.url && (
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        className={styles.workItemLink}
-                        rel="noreferrer"
-                      >
-                        作品を見る
-                      </a>
-                    )}
-                    <Link href="">
-                      <a className={styles.workItemLink}>詳細を見る</a>
-                    </Link>
-                  </div>
+            <div className={styles.workItem} key={item.id}>
+              <Image
+                src={item.image.url}
+                width={320}
+                height={320}
+                alt="カスタムオーディオパネルの作品画像"
+                objectFit="cover"
+              />
+              <div className={styles.workItemDescription}>
+                <h3 className={styles.workItemTitle}>{item.title}</h3>
+                <p>{item.description}</p>
+                <div className={styles.workItemLink}>
+                  {item.url && (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      className={styles.workItemLink}
+                      rel="noreferrer"
+                    >
+                      作品を見る
+                    </a>
+                  )}
+                  <Link href="">
+                    <a className={styles.workItemLink}>詳細を見る</a>
+                  </Link>
                 </div>
               </div>
-            </>
+            </div>
           );
         })}
       </div>
