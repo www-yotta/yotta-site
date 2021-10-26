@@ -41,7 +41,7 @@ const WorkPageId: FC<WorkPageIdProps> = ({ blog, count, id }: any) => {
                 src={item.image.url}
                 width={320}
                 height={320}
-                alt="カスタムオーディオパネルの作品画像"
+                alt={item.title}
                 objectFit="cover"
               />
               <div className={workStyles.workItemDescription}>
@@ -58,7 +58,7 @@ const WorkPageId: FC<WorkPageIdProps> = ({ blog, count, id }: any) => {
                       作品を見る
                     </a>
                   )}
-                  <Link href={`/${PAGE_NAME}/${blog.id}`}>
+                  <Link href={`/${PAGE_NAME}/${item.id}`}>
                     <a className={workStyles.workItemLink}>詳細を見る</a>
                   </Link>
                 </div>
