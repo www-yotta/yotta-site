@@ -41,25 +41,27 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
 
   return (
     <section className={styles.root} {...props}>
-      <h2 className={styles.title}>お問い合わせ</h2>
-      <p className={styles.sub}>
-        お仕事の依頼などありましたら下記フォームからご連絡ください。
-      </p>
-      <div className={styles.contact}>
-        <div className={styles.inputGroup}>
-          <label htmlFor="name">お名前</label>
-          <input id="name" type="text" {...register("name")} />
-        </div>
-        <div className={styles.inputGroup}>
-          <label htmlFor="email">メールアドレス</label>
-          <input id="email" type="text" {...register("email")} />
-        </div>
-        <div className={styles.inputGroup}>
-          <label htmlFor="body">内容</label>
-          <textarea id="body" {...register("body")} rows={10}></textarea>
-        </div>
-        <div className={styles.submit} onClick={handleSubmit(handleRequset)}>
-          <span>送信</span>
+      <div className={styles.inner}>
+        <h2 className={styles.title}>お問い合わせ</h2>
+        <p className={styles.sub}>
+          お仕事の依頼などありましたら下記フォームからご連絡ください。
+        </p>
+        <div className={styles.contact}>
+          <div className={styles.inputGroup}>
+            <label htmlFor="name">お名前</label>
+            <input id="name" type="text" {...register("name")} />
+          </div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="email">メールアドレス</label>
+            <input id="email" type="text" {...register("email")} />
+          </div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="body">内容</label>
+            <textarea id="body" {...register("body")} rows={10}></textarea>
+          </div>
+          <div className={styles.submit} onClick={handleSubmit(handleRequset)}>
+            <span>送信</span>
+          </div>
         </div>
       </div>
     </section>

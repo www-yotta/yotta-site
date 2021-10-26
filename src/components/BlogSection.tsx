@@ -11,42 +11,44 @@ type BLogSectionProps = {
 const BlogSection: FC<BLogSectionProps> = ({ data, ...props }) => {
   return (
     <section className={styles.root} {...props}>
-      <h2 className={styles.title}>ブログ</h2>
-      <p className={styles.description}>気になったことを書きます。</p>
-      <div className={styles.blog}>
-        {data?.map((item) => {
-          return (
-            <div className={styles.blogItem} key={item.id}>
-              <div className={styles.blogItemImage}>
-                <Image
-                  src={item.image.url}
-                  width={320}
-                  height={180}
-                  alt="ブログのサムネイル"
-                  objectFit="cover"
-                />
-              </div>
-              <div className={styles.blogItemContent}>
-                <h3 className={styles.blogItemTitle}>{item.title}</h3>
-                <div
-                  className={styles.blogItemText}
-                  dangerouslySetInnerHTML={{
-                    __html: `${item.body}`,
-                  }}
-                ></div>
-                <div className={styles.blogItemFooter}>
-                  <Link href={`/blog/${item.id}`}>
-                    <a className={styles.blogItemLink}>詳細を見る</a>
-                  </Link>
+      <div className={styles.inner}>
+        <h2 className={styles.title}>ブログ</h2>
+        <p className={styles.description}>気になったことを書きます。</p>
+        <div className={styles.blog}>
+          {data?.map((item) => {
+            return (
+              <div className={styles.blogItem} key={item.id}>
+                <div className={styles.blogItemImage}>
+                  <Image
+                    src={item.image.url}
+                    width={320}
+                    height={180}
+                    alt="ブログのサムネイル"
+                    objectFit="cover"
+                  />
+                </div>
+                <div className={styles.blogItemContent}>
+                  <h3 className={styles.blogItemTitle}>{item.title}</h3>
+                  <div
+                    className={styles.blogItemText}
+                    dangerouslySetInnerHTML={{
+                      __html: `${item.body}`,
+                    }}
+                  ></div>
+                  <div className={styles.blogItemFooter}>
+                    <Link href={`/blog/${item.id}`}>
+                      <a className={styles.blogItemLink}>詳細を見る</a>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+        <Link href="/blog/page/1">
+          <a className={styles.blogListLink}>全て見る</a>
+        </Link>
       </div>
-      <Link href="/blog/page/1">
-        <a className={styles.blogListLink}>全て見る</a>
-      </Link>
     </section>
   );
 };
