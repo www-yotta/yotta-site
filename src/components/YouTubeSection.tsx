@@ -34,12 +34,22 @@ const YoutubeSection: FC<YoutubeSectionProps> = ({ data, ...props }) => {
         })}
       </div>
       <div className={styles.linkWrap}>
-        <Link href="https://www.youtube.com/channel/UCM-J1WxoJMwcxB7H_Xw-8hg">
-          <a className={styles.youtubeLink}>ゲーム実況を見る</a>
-        </Link>
-        <Link href="https://www.youtube.com/channel/UCoaukyqwW85pfMW9RxXeQRw">
-          <a className={styles.youtubeLink}>プログラミングを学んでみる</a>
-        </Link>
+        <a
+          href="https://www.youtube.com/channel/UCM-J1WxoJMwcxB7H_Xw-8hg"
+          className={styles.youtubeLink}
+          target="_blank"
+          rel="noreferrer"
+        >
+          ゲーム実況を見る
+        </a>
+        <a
+          href="https://www.youtube.com/channel/UCoaukyqwW85pfMW9RxXeQRw"
+          className={styles.youtubeLink}
+          target="_blank"
+          rel="noreferrer"
+        >
+          プログラミングを学んでみる
+        </a>
       </div>
     </section>
   );
