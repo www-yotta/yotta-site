@@ -1,0 +1,39 @@
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.title {
+  font-size: 30px;
+  text-align: center;
+}
+.work {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  &Image {
+    margin: 0 auto;
+    max-width: 50%;
+  }
+  &Detail {
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  &Url {
+    margin-top: 20px;
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+.text {
+  white-space: pre-wrap;
+}
+.topLink {
+  margin-top: 40px;
+  display: block;
+  text-decoration: underline;
+  text-align: center;
+}
