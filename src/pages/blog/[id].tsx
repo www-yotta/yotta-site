@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "components/Header";
 import styles from "./detail.module.scss";
+import Footer from "components/Footer";
 
 type BlogDetailProps = {
   blogData: BlogData;
@@ -33,9 +34,10 @@ const BlogDetail: NextPage<BlogDetailProps> = ({ blogData }) => {
           ></div>
         </div>
       </div>
-      <Link href="/">
-        <a className={styles.topLink}>トップに戻る</a>
+      <Link href="/blog/page/1">
+        <a className={styles.topLink}>一覧に戻る</a>
       </Link>
+      <Footer />
     </main>
   );
 };

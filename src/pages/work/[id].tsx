@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./detail.module.scss";
 import Header from "components/Header";
+import Footer from "components/Footer";
 
 type WorkDetailProps = {
   workData: WorkData;
@@ -37,9 +38,10 @@ const WorkDetail: NextPage<WorkDetailProps> = ({ workData }) => {
             </p>
           </div>
         </div>
-        <Link href="/">
-          <a className={styles.topLink}>トップに戻る</a>
+        <Link href="/work/page/1">
+          <a className={styles.topLink}>一覧に戻る</a>
         </Link>
+        <Footer />
       </div>
     </main>
   );
