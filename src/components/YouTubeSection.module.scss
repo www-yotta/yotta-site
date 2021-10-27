@@ -2,24 +2,11 @@
   width: 100%;
   font-size: 14px;
 }
-.inner {
-  width: 1000px;
-  margin: 0 auto;
-  padding: 40px 0;
-}
-.title {
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 40px;
-}
-.description {
-  text-align: center;
-}
 .youtubeContent {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  margin: 20px 0;
+  margin: 40px 0;
 }
 .youtubeItem {
   width: 320px;

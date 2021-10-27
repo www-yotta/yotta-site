@@ -10,8 +10,8 @@ type ProfileSectionProps = {
 const ProfileSection: FC<ProfileSectionProps> = ({ ...props }) => {
   return (
     <section className={styles.root} {...props}>
-      <div className={styles.inner}>
-        <h2 className={styles.title}>プロフィール</h2>
+      <div className="inner">
+        <h2 className="title">プロフィール</h2>
         <div className={styles.profileInner}>
           <div className={styles.image}>
             <Image

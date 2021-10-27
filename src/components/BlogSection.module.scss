@@ -1,25 +1,12 @@
 .root {
   font-size: 14px;
 }
-.inner {
-  width: 1000px;
-  margin: 0 auto;
-  padding: 40px 0;
-}
-.title {
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 40px;
-}
-.description {
-  text-align: center;
-}
 .blog {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  margin: 20px 0;
+  margin: 40px 0;
   &Item {
     display: flex;
     flex-direction: column;
@@ -62,7 +49,6 @@
     }
   }
 }
-
 .blogListLink {
   display: flex;
   align-items: center;

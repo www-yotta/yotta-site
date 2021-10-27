@@ -11,9 +11,9 @@ type BLogSectionProps = {
 const BlogSection: FC<BLogSectionProps> = ({ data, ...props }) => {
   return (
     <section className={styles.root} {...props}>
-      <div className={styles.inner}>
-        <h2 className={styles.title}>ブログ</h2>
-        <p className={styles.description}>気になったことを書きます。</p>
+      <div className="inner">
+        <h2 className="title">ブログ</h2>
+        <p className="description">気になったことを書きます。</p>
         <div className={styles.blog}>
           {data?.map((item) => {
             return (
