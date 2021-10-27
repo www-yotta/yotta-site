@@ -8,7 +8,11 @@ const Header: NextPage = () => {
   return (
     <header className={styles.root}>
       <div className={styles.inner}>
-        <Image src={logo} height={40} objectFit="contain" alt="ロゴ" />
+        <Link href="/">
+          <a>
+            <Image src={logo} height={40} objectFit="contain" alt="ロゴ" />
+          </a>
+        </Link>
         <nav className={styles.nav}>
           <ul className={styles.menu}>
             <li>
