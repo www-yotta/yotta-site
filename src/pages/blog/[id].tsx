@@ -3,28 +3,38 @@ import { fetcher } from "utils/fetcher";
 import { BlogData } from "types/api";
 import Image from "next/image";
 import Link from "next/link";
+import Header from "components/Header";
+import styles from "./detail.module.scss";
 
 type BlogDetailProps = {
   blogData: BlogData;
 };
 const BlogDetail: NextPage<BlogDetailProps> = ({ blogData }) => {
   return (
-    <main>
-      <h1>{blogData.title}</h1>
-      <Image
-        src={blogData.image.url}
-        width={320}
-        height={180}
-        alt="ブログのサムネイル"
-        objectFit="cover"
-      />
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `${blogData.body}`,
-        }}
-      ></div>
+    <main className={styles.root}>
+      <Header />
+      <div className={styles.container}>
+        <h1 className={styles.title}>{blogData.title}</h1>
+        <div className={styles.work}>
+          <div className={styles.workImage}>
+            <Image
+              src={blogData.image.url}
+              width={320}
+              height={180}
+              alt="ブログのサムネイル"
+              objectFit="cover"
+            />
+          </div>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `${blogData.body}`,
+            }}
+            className={styles.workDetail}
+          ></div>
+        </div>
+      </div>
       <Link href="/">
-        <a>トップに戻る</a>
+        <a className={styles.topLink}>トップに戻る</a>
       </Link>
     </main>
   );
