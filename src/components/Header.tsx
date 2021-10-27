@@ -1,10 +1,10 @@
-import { NextPage } from "next";
+import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.scss";
 import logo from "images/logo.png";
 
-const Header: NextPage = () => {
+const Header: FC = () => {
   return (
     <header className={styles.root}>
       <div className={styles.inner}>
@@ -16,27 +16,27 @@ const Header: NextPage = () => {
         <nav className={styles.nav}>
           <ul className={styles.menu}>
             <li>
-              <Link href="#profile">
+              <Link href="/#profile">
                 <a>プロフィール</a>
               </Link>
             </li>
             <li>
-              <Link href="#youtube">
+              <Link href="/#youtube">
                 <a>YouTube</a>
               </Link>
             </li>
             <li>
-              <Link href="#work">
+              <Link href="/#work">
                 <a>仕事</a>
               </Link>
             </li>
             <li>
-              <Link href="#blog">
+              <Link href="/#blog">
                 <a>ブログ</a>
               </Link>
             </li>
             <li>
-              <Link href="#contact">
+              <Link href="/#contact">
                 <a>お問い合わせ</a>
               </Link>
             </li>

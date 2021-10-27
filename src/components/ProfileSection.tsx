@@ -43,21 +43,21 @@ const ProfileSection: FC<ProfileSectionProps> = ({ ...props }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <FaTwitter size={30} />
+                <FaTwitter size={30} title="Twitter" />
               </a>
               <a
                 href="https://www.youtube.com/channel/UCoaukyqwW85pfMW9RxXeQRw"
                 target="_blank"
                 rel="noreferrer"
               >
-                <FaYoutube size={30} />
+                <FaYoutube size={30} title="YouTube" />
               </a>
               <a
                 href="https://github.com/www-yotta"
                 target="_blank"
                 rel="noreferrer"
               >
-                <FaGithub size={30} />
+                <FaGithub size={30} title="Github" />
               </a>
             </div>
           </div>

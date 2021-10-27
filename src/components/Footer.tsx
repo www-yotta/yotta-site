@@ -1,7 +1,7 @@
-import { NextPage } from "next";
+import { FC } from "react";
 import styles from "./Footer.module.scss";
 
-const Footer: NextPage = () => {
+const Footer: FC = () => {
   return (
     <footer className={styles.root}>
       <p className={styles.copyright}>&copy;www.yotta</p>
