@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styles from "./ContactSection.module.scss";
 import { useForm } from "react-hook-form";
+import Button from "@mui/material/Button";
 
 type ContactSectionProps = {
   id: string;
@@ -59,9 +60,13 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
             <label htmlFor="body">内容</label>
             <textarea id="body" {...register("body")} rows={10}></textarea>
           </div>
-          <div className={styles.submit} onClick={handleSubmit(handleRequset)}>
-            <span>送信</span>
-          </div>
+          <Button
+            variant="outlined"
+            className={styles.contactSubmit}
+            onClick={handleSubmit(handleRequset)}
+          >
+            送信
+          </Button>
         </div>
       </div>
     </section>

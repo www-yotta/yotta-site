@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./WorkSection.module.scss";
 import { WorkData } from "types/api";
+import Button from "@mui/material/Button";
 
 type WorkSection = {
   id: string;
@@ -22,13 +23,15 @@ const WorkSection: FC<WorkSection> = ({ data, ...props }) => {
           {data?.map((item) => {
             return (
               <div className={styles.workItem} key={item.id}>
-                <Image
-                  src={item.image.url}
-                  width={320}
-                  height={320}
-                  alt="カスタムオーディオパネルの作品画像"
-                  objectFit="cover"
-                />
+                <div className={styles.workItemImage}>
+                  <Image
+                    src={item.image.url}
+                    width={320}
+                    height={320}
+                    alt="カスタムオーディオパネルの作品画像"
+                    objectFit="cover"
+                  />
+                </div>
                 <div className={styles.workItemDescription}>
                   <h3 className={styles.workItemTitle}>{item.title}</h3>
                   <p>{item.description}</p>
@@ -52,8 +55,10 @@ const WorkSection: FC<WorkSection> = ({ data, ...props }) => {
             );
           })}
         </div>
-        <Link href="/work/page/1">
-          <a className={styles.allViewLink}>全て見る</a>
+        <Link href="/work/page/1" passHref>
+          <Button variant="outlined" className={styles.allViewLink}>
+            全て見る
+          </Button>
         </Link>
       </div>
     </section>

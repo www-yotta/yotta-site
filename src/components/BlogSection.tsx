@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./BlogSection.module.scss";
 import { BlogData } from "types/api";
+import Button from "@mui/material/Button";
 
 type BLogSectionProps = {
   id: string;
@@ -36,8 +37,13 @@ const BlogSection: FC<BLogSectionProps> = ({ data, ...props }) => {
                     }}
                   ></div>
                   <div className={styles.blogItemFooter}>
-                    <Link href={`/blog/${item.id}`}>
-                      <a className={styles.blogItemLink}>詳細を見る</a>
+                    <Link href={`/blog/${item.id}`} passHref>
+                      <Button
+                        variant="outlined"
+                        className={styles.blogItemLink}
+                      >
+                        詳細を見る
+                      </Button>
                     </Link>
                   </div>
                 </div>
@@ -45,8 +51,10 @@ const BlogSection: FC<BLogSectionProps> = ({ data, ...props }) => {
             );
           })}
         </div>
-        <Link href="/blog/page/1">
-          <a className={styles.blogListLink}>全て見る</a>
+        <Link href="/blog/page/1" passHref>
+          <Button variant="outlined" className={styles.blogListLink}>
+            詳細を見る
+          </Button>
         </Link>
       </div>
     </section>

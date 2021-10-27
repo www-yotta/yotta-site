@@ -19,11 +19,7 @@
 .youtubeLink {
   width: 490px;
   height: 40px;
-  border: 1px solid;
   display: flex;
   align-items: center;
   justify-content: center;
-  &:hover {
-    background-color: rgba(112, 118, 148, 0.5);
-  }
 }

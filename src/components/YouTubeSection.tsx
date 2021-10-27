@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styles from "./YouTubeSection.module.scss";
 import { YoutubeData } from "types/api";
+import Button from "@mui/material/Button";
 
 type YoutubeSectionProps = {
   id: string;
@@ -34,22 +35,25 @@ const YoutubeSection: FC<YoutubeSectionProps> = ({ data, ...props }) => {
           })}
         </div>
         <div className={styles.linkWrap}>
-          <a
+          <Button
+            variant="outlined"
             href="https://www.youtube.com/channel/UCM-J1WxoJMwcxB7H_Xw-8hg"
             className={styles.youtubeLink}
             target="_blank"
             rel="noreferrer"
+            color="primary"
           >
             ゲーム実況を見る
-          </a>
-          <a
+          </Button>
+          <Button
+            variant="outlined"
             href="https://www.youtube.com/channel/UCoaukyqwW85pfMW9RxXeQRw"
             className={styles.youtubeLink}
             target="_blank"
             rel="noreferrer"
           >
-            プログラミングを学んでみる
-          </a>
+            ゲーム実況を見る
+          </Button>
         </div>
       </div>
     </section>
