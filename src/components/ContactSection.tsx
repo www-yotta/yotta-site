@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./ContactSection.module.scss";
 import { useForm } from "react-hook-form";
 import Button from "@mui/material/Button";
@@ -7,8 +7,13 @@ type ContactSectionProps = {
   id: string;
 };
 const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
-  const { register, handleSubmit, reset } = useForm();
-
+  const [isContact, setIsContact] = useState<boolean>(false);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const handleRequset = (forms: any) => {
     const WRITE_API_KEY = process.env.NEXT_PUBLIC_WRITE_API_KEY
       ? process.env.NEXT_PUBLIC_WRITE_API_KEY
@@ -34,6 +39,7 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
           email: "",
           body: "",
         });
+        setIsContact(true);
       })
       .catch((error) => {
         console.error("通信に失敗しました", error);
@@ -49,16 +55,52 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
         </p>
         <div className={styles.contact}>
           <div className={styles.inputGroup}>
-            <label htmlFor="name">お名前</label>
-            <input id="name" type="text" {...register("name")} />
+            <label htmlFor="name">
+              お名前<span className="errorText">*</span>
+            </label>
+            <input
+              id="name"
+              type="text"
+              {...register("name", { required: true })}
+            />
+            {errors.name?.type === "required" && (
+              <p className="errorText">入力必須です。</p>
+            )}
           </div>
           <div className={styles.inputGroup}>
-            <label htmlFor="email">メールアドレス</label>
-            <input id="email" type="text" {...register("email")} />
+            <label htmlFor="email">
+              メールアドレス<span className="errorText">*</span>
+            </label>
+            <input
+              id="email"
+              type="text"
+              {...register("email", {
+                required: true,
+                pattern:
+                  /^[a-zA-Z0-9_+-]+(.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/,
+              })}
+            />
+            {errors.email?.type === "required" && (
+              <p className="errorText">入力必須です。</p>
+            )}
+            {errors.email?.type === "pattern" && (
+              <p className="errorText">
+                メールアドレスの形式で入力してください。
+              </p>
+            )}
           </div>
           <div className={styles.inputGroup}>
-            <label htmlFor="body">内容</label>
-            <textarea id="body" {...register("body")} rows={10}></textarea>
+            <label htmlFor="body">
+              内容<span className="errorText">*</span>
+            </label>
+            <textarea
+              id="body"
+              {...register("body", { required: true })}
+              rows={10}
+            ></textarea>
+            {errors.body?.type === "required" && (
+              <p className="errorText">入力必須です。</p>
+            )}
           </div>
           <Button
             variant="outlined"
@@ -67,6 +109,13 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
           >
             送信
           </Button>
+          {isContact && (
+            <p className={styles.completeMessage}>
+              送信が完了しました。
+              <br />
+              お問い合わせありがとうございます。
+            </p>
+          )}
         </div>
       </div>
     </section>
