@@ -1,0 +1,45 @@
+.blog {
+  &Item {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 380px;
+    border: 1px solid #13223c;
+    border-radius: 4px;
+    &Image {
+      width: 100%;
+      border-radius: 4px 4px 0 0;
+      overflow: hidden;
+    }
+    &Content {
+      padding: 12px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    &Title {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    &Text {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      font-size: 14px;
+    }
+    &Footer {
+      margin-top: auto;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    &Link {
+      width: 110px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

@@ -1,7 +1,5 @@
 import { FC } from "react";
 import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
 import { fetcher } from "utils/fetcher";
 import Pagination from "@mui/material/Pagination";
 import { BlogData } from "types/api";
@@ -11,6 +9,7 @@ import detailStyles from "./detail.module.scss";
 import blogStyles from "../../../components/BlogSection.module.scss";
 import Header from "components/Header";
 import Footer from "components/Footer";
+import BlogItem from "components/BlogItem";
 
 const PER_PAGE = 9;
 const PAGE_NAME = "blog";
@@ -40,32 +39,8 @@ const BlogPageId: FC<BlogPageIdProps> = ({ blog, id, count }) => {
         <div className={detailStyles.container}>
           <h1 className={detailStyles.title}>三波ヨタのブログ</h1>
           <div className={blogStyles.blog}>
-            {blog.map((item: any) => (
-              <div className={blogStyles.blogItem} key={item.id}>
-                <div className={blogStyles.blogItemImage}>
-                  <Image
-                    src={item.image.url}
-                    width={320}
-                    height={180}
-                    alt="ブログのサムネイル"
-                    objectFit="cover"
-                  />
-                </div>
-                <div className={blogStyles.blogItemContent}>
-                  <h3 className={blogStyles.blogItemTitle}>{item.title}</h3>
-                  <div
-                    className={blogStyles.blogItemText}
-                    dangerouslySetInnerHTML={{
-                      __html: `${item.body}`,
-                    }}
-                  ></div>
-                  <div className={blogStyles.blogItemFooter}>
-                    <Link href={`/${PAGE_NAME}/${item.id}`}>
-                      <a className={blogStyles.blogItemLink}>詳細を見る</a>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+            {blog.map((item) => (
+              <BlogItem item={item} key={item.id} />
             ))}
           </div>
           <Pagination

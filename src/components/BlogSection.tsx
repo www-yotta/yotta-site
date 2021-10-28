@@ -1,9 +1,9 @@
 import { FC } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import styles from "./BlogSection.module.scss";
 import { BlogData } from "types/api";
 import Button from "@mui/material/Button";
+import BlogItem from "components/BlogItem";
 
 type BLogSectionProps = {
   id: string;
@@ -17,43 +17,12 @@ const BlogSection: FC<BLogSectionProps> = ({ data, ...props }) => {
         <p className="description">気になったことを書きます。</p>
         <div className={styles.blog}>
           {data?.map((item) => {
-            return (
-              <div className={styles.blogItem} key={item.id}>
-                <div className={styles.blogItemImage}>
-                  <Image
-                    src={item.image.url}
-                    width={320}
-                    height={180}
-                    alt="ブログのサムネイル"
-                    objectFit="cover"
-                  />
-                </div>
-                <div className={styles.blogItemContent}>
-                  <h3 className={styles.blogItemTitle}>{item.title}</h3>
-                  <div
-                    className={styles.blogItemText}
-                    dangerouslySetInnerHTML={{
-                      __html: `${item.body}`,
-                    }}
-                  ></div>
-                  <div className={styles.blogItemFooter}>
-                    <Link href={`/blog/${item.id}`} passHref>
-                      <Button
-                        variant="outlined"
-                        className={styles.blogItemLink}
-                      >
-                        詳細を見る
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            );
+            return <BlogItem item={item} key={item.id} />;
           })}
         </div>
         <Link href="/blog/page/1" passHref>
           <Button variant="outlined" className={styles.blogListLink}>
-            詳細を見る
+            全て見る
           </Button>
         </Link>
       </div>
