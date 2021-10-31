@@ -35,7 +35,7 @@ const WorkPageId: FC<WorkPageIdProps> = ({ blog, count, id }: any) => {
       </Head>
       <main>
         <Header />
-        <div className={detailStyles.container}>
+        <div className="inner">
           <h1 className={detailStyles.title}>お仕事ポートフォリオ</h1>
           <div className={workStyles.work}>
             {blog.map((item: any) => (

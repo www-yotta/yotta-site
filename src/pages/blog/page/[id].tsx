@@ -36,7 +36,7 @@ const BlogPageId: FC<BlogPageIdProps> = ({ blog, id, count }) => {
       </Head>
       <main>
         <Header />
-        <div className={detailStyles.container}>
+        <div className="inner">
           <h1 className={detailStyles.title}>三波ヨタのブログ</h1>
           <div className={blogStyles.blog}>
             {blog.map((item) => (

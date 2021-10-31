@@ -14,7 +14,7 @@ const WorkDetail: NextPage<WorkDetailProps> = ({ workData }) => {
   return (
     <main className={styles.root}>
       <Header />
-      <div className={styles.container}>
+      <div className="inner">
         <h1 className={styles.title}>{workData.title}</h1>
         <div className={styles.work}>
           <div className={styles.workImage}>
@@ -48,7 +48,7 @@ const WorkDetail: NextPage<WorkDetailProps> = ({ workData }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const workData = await fetcher("/work");
+  const workData = await fetcher("/work", { limit: 1000 });
   const paths = workData.contents.map((item: WorkData) => `/work/${item.id}`);
   return { paths, fallback: false };
 };

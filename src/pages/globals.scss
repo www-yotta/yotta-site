@@ -23,6 +23,10 @@ a {
   width: 1000px;
   margin: 0 auto;
   padding: 40px 0;
+  @media screen and (max-width: 576px) {
+    width: 100%;
+    padding: 40px 20px;
+  }
 }
 .title {
   text-align: center;
@@ -34,6 +38,10 @@ a {
   width: 600px;
   margin: 0 auto;
   text-align: center;
+  @media screen and (max-width: 576px) {
+    width: 100%;
+    padding: 0 20px;
+  }
 }
 .errorText {
   color: #f00;
