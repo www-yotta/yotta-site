@@ -72,6 +72,9 @@
   font-size: 140px;
   z-index: 2;
   line-height: 1;
+  @media screen and (max-width: 576px) {
+    font-size: 80px;
+  }
 }
 .myName {
   position: absolute;

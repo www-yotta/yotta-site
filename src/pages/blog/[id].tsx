@@ -7,6 +7,9 @@ import Header from "components/Header";
 import styles from "./detail.module.scss";
 import Footer from "components/Footer";
 
+const PER_PAGE = 9;
+const PAGE_NAME = "blog";
+
 type BlogDetailProps = {
   blogData: BlogData;
 };
@@ -14,7 +17,7 @@ const BlogDetail: NextPage<BlogDetailProps> = ({ blogData }) => {
   return (
     <main className={styles.root}>
       <Header />
-      <div className={styles.container}>
+      <div className="inner">
         <h1 className={styles.title}>{blogData.title}</h1>
         <div className={styles.work}>
           <div className={styles.workImage}>
@@ -43,7 +46,8 @@ const BlogDetail: NextPage<BlogDetailProps> = ({ blogData }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const blogData = await fetcher("/blog");
+  // TODO: limitの数を大きくするといつか5MGの制限を超えるので分割して全件取得に変えたい
+  const blogData = await fetcher("/blog", { limit: 1000 });
   const paths = blogData.contents.map((item: BlogData) => `/blog/${item.id}`);
   return { paths, fallback: false };
 };

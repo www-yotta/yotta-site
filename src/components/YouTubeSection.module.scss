@@ -7,6 +7,9 @@
   gap: 20px;
   flex-wrap: wrap;
   margin: 40px 0;
+  @media screen and (max-width: 576px) {
+    justify-content: center;
+  }
 }
 .youtubeItem {
   width: 320px;

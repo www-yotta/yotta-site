@@ -1,20 +1,32 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.scss";
 import logo from "images/logo.png";
+import clsx from "clsx";
+import { FaBars } from "react-icons/fa";
 
 const Header: FC = () => {
+  const [menuToggle, setMenuToggle] = useState<boolean>(false);
+
   return (
-    <header className={styles.root}>
+    <header className={clsx(styles.root, menuToggle && styles.rootOpen)}>
       <div className={styles.inner}>
-        <Link href="/">
-          <a>
-            <Image src={logo} height={40} objectFit="contain" alt="ロゴ" />
-          </a>
-        </Link>
-        <nav className={styles.nav}>
-          <ul className={styles.menu}>
+        <div className={styles.innerLeft}>
+          <Link href="/">
+            <a>
+              <Image src={logo} height={40} objectFit="contain" alt="ロゴ" />
+            </a>
+          </Link>
+          <div
+            className={styles.menuButton}
+            onClick={() => setMenuToggle(!menuToggle)}
+          >
+            <FaBars size={25} />
+          </div>
+        </div>
+        <nav className={clsx(styles.nav)}>
+          <ul className={clsx(styles.menu)}>
             <li>
               <Link href="/#profile">
                 <a>プロフィール</a>
