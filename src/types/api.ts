@@ -21,3 +21,10 @@ export type YoutubeData = {
   movieId: string;
   memo: string;
 };
+export type SeoData = {
+  id?: string;
+  title: string;
+  url: string;
+  description: string;
+  image: ImageProps;
+};

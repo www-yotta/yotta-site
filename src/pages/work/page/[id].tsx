@@ -1,7 +1,5 @@
 import { FC } from "react";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import { fetcher } from "utils/fetcher";
 import Pagination from "@mui/material/Pagination";
 import { WorkData } from "types/api";
@@ -62,6 +60,7 @@ export default WorkPageId;
 // 動的なページを作成
 export const getStaticPaths = async () => {
   const repos = await fetcher(`/${PAGE_NAME}`);
+  console.log(repos);
 
   const range = (start: number, end: number) =>
     [...Array(end - start + 1)].map((_, i) => start + i);
