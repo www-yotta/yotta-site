@@ -3,6 +3,10 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "theme";
+import * as gtag from "../lib/gtag";
+import Router from "next/router";
+
+Router.events.on("routeChangeComplete", (url) => gtag.pageview(url));
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
