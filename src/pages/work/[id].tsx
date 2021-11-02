@@ -1,18 +1,22 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import { fetcher } from "utils/fetcher";
-import { WorkData } from "types/api";
+import { WorkData, SeoData } from "types/api";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./detail.module.scss";
 import Header from "components/Header";
 import Footer from "components/Footer";
+import Seo from "components/Seo";
+import { MicroCMSContents } from "types/microcms";
 
 type WorkDetailProps = {
   workData: WorkData;
+  seoData: SeoData;
 };
-const WorkDetail: NextPage<WorkDetailProps> = ({ workData }) => {
+const WorkDetail: NextPage<WorkDetailProps> = ({ workData, seoData }) => {
   return (
     <main className={styles.root}>
+      <Seo data={seoData} />
       <Header />
       <div className="inner">
         <h1 className={styles.title}>{workData.title}</h1>
@@ -48,16 +52,28 @@ const WorkDetail: NextPage<WorkDetailProps> = ({ workData }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const workData = await fetcher("/work", { limit: 1000 });
-  const paths = workData.contents.map((item: WorkData) => `/work/${item.id}`);
+  // TODO: limitの数を大きくするといつか5MGの制限を超えるので分割して全件取得に変えたい
+  const workData = await fetcher<MicroCMSContents<WorkData>>("/work", {
+    limit: 1000,
+  });
+  const paths = workData.contents.map((item) => `/work/${item.id}`);
   return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const workData = await fetcher(`/work/${context.params?.id}`);
+  const endpoint = `/work/${context.params?.id}`;
+  const workData = await fetcher<WorkData>(endpoint);
+  const { image: seoImage, url: seoUrl } = await fetcher<SeoData>("/seo");
+  const seoData: SeoData = {
+    title: `${workData.title} | 三波ヨタのポートフォリオ`,
+    description: workData.description,
+    url: seoUrl + endpoint,
+    image: seoImage,
+  };
   return {
     props: {
       workData,
+      seoData,
     },
   };
 };

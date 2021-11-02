@@ -1,21 +1,22 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import { fetcher } from "utils/fetcher";
-import { BlogData } from "types/api";
+import { BlogData, SeoData } from "types/api";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "components/Header";
 import styles from "./detail.module.scss";
 import Footer from "components/Footer";
-
-const PER_PAGE = 9;
-const PAGE_NAME = "blog";
+import Seo from "components/Seo";
+import { MicroCMSContents } from "types/microcms";
 
 type BlogDetailProps = {
   blogData: BlogData;
+  seoData: SeoData;
 };
-const BlogDetail: NextPage<BlogDetailProps> = ({ blogData }) => {
+const BlogDetail: NextPage<BlogDetailProps> = ({ blogData, seoData }) => {
   return (
     <main className={styles.root}>
+      <Seo data={seoData} />
       <Header />
       <div className="inner">
         <h1 className={styles.title}>{blogData.title}</h1>
@@ -47,16 +48,32 @@ const BlogDetail: NextPage<BlogDetailProps> = ({ blogData }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // TODO: limitの数を大きくするといつか5MGの制限を超えるので分割して全件取得に変えたい
-  const blogData = await fetcher("/blog", { limit: 1000 });
+  const blogData = await fetcher<MicroCMSContents<BlogData>>("/blog", {
+    limit: 1000,
+  });
   const paths = blogData.contents.map((item: BlogData) => `/blog/${item.id}`);
   return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const blogData = await fetcher(`/blog/${context.params?.id}`);
+  const endpoint = `/blog/${context.params?.id}`;
+  const blogData = await fetcher<BlogData>(endpoint);
+  const { url: seoUrl } = await fetcher<SeoData>("/seo");
+  // NOTE: SEOの文字列として表示するためiframeを削除した後にタグを削除
+  const seoDescription = blogData.body
+    .replace(/<iframe.*<\/iframe>/, "")
+    .replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, "");
+
+  const seoData: SeoData = {
+    title: `${blogData.title} | 三波ヨタのブログ`,
+    description: seoDescription,
+    url: seoUrl + endpoint,
+    image: blogData.image,
+  };
   return {
     props: {
       blogData,
+      seoData,
     },
   };
 };
