@@ -52,6 +52,7 @@ const WorkDetail: NextPage<WorkDetailProps> = ({ workData, seoData }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  // TODO: limitの数を大きくするといつか5MGの制限を超えるので分割して全件取得に変えたい
   const workData = await fetcher<MicroCMSContents<WorkData>>("/work", {
     limit: 1000,
   });
@@ -64,7 +65,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const workData = await fetcher<WorkData>(endpoint);
   const { image: seoImage, url: seoUrl } = await fetcher<SeoData>("/seo");
   const seoData: SeoData = {
-    title: `三波ヨタのポートフォリオ | ${workData.title}`,
+    title: `${workData.title} | 三波ヨタのポートフォリオ`,
     description: workData.description,
     url: seoUrl + endpoint,
     image: seoImage,

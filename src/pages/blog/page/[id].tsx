@@ -2,7 +2,7 @@ import { FC } from "react";
 import Head from "next/head";
 import { fetcher } from "utils/fetcher";
 import Pagination from "@mui/material/Pagination";
-import { BlogData } from "types/api";
+import { BlogData, SeoData, ImageProps } from "types/api";
 import Router from "next/router";
 import styles from "../../Home.module.scss";
 import detailStyles from "./detail.module.scss";
@@ -10,6 +10,8 @@ import blogStyles from "../../../components/BlogSection.module.scss";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import BlogItem from "components/BlogItem";
+import { MicroCMSContents } from "types/microcms";
+import Seo from "components/Seo";
 
 const PER_PAGE = 9;
 const PAGE_NAME = "blog";
@@ -19,9 +21,24 @@ type BlogPageIdProps = {
   totalCount: number;
   id: number;
   count: number;
+  seoImage: ImageProps;
+  seoUrl: string;
 };
 
-const BlogPageId: FC<BlogPageIdProps> = ({ blog, id, count }) => {
+const BlogPageId: FC<BlogPageIdProps> = ({
+  blog,
+  id,
+  count,
+  seoUrl,
+  seoImage,
+}) => {
+  const endpoint = `${seoUrl}/${PAGE_NAME}/page`;
+  const seoData: SeoData = {
+    url: `${endpoint}/${id}`,
+    image: seoImage,
+    title: `三波ヨタのブログ | ${id}ページ目`,
+    description: "三波ヨタのブログです。",
+  };
   // TODO: 外出しにする
   const handleClick = (_: { preventDefault: () => void }, page: number) => {
     Router.push(`/${PAGE_NAME}/page/${page}`);
@@ -29,11 +46,7 @@ const BlogPageId: FC<BlogPageIdProps> = ({ blog, id, count }) => {
 
   return (
     <div className={styles.root}>
-      <Head>
-        <title>三波ヨタ|ブログ {id} ページ目</title>
-        <meta name="description" content="三波ヨタのブログです。" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Seo data={seoData} />
       <main>
         <Header />
         <div className="inner">
@@ -63,7 +76,7 @@ export default BlogPageId;
 // TODO: 中身を汎用化したい
 // 動的なページを作成
 export const getStaticPaths = async () => {
-  const repos = await fetcher(`/${PAGE_NAME}`);
+  const repos = await fetcher<MicroCMSContents<BlogData>>(`/${PAGE_NAME}`);
 
   const range = (start: number, end: number) =>
     [...Array(end - start + 1)].map((_, i) => start + i);
@@ -83,7 +96,11 @@ export const getStaticProps = async (context: { params: { id: number } }) => {
     offset: (id - 1) * PER_PAGE,
     limit: PER_PAGE,
   };
-  const data = await fetcher(`/${PAGE_NAME}`, option);
+  const data = await fetcher<MicroCMSContents<BlogData>>(
+    `/${PAGE_NAME}`,
+    option
+  );
+  const { image: seoImage, url: seoUrl } = await fetcher<SeoData>("/seo");
   const count = Math.ceil(data.totalCount / PER_PAGE);
 
   return {
@@ -92,6 +109,8 @@ export const getStaticProps = async (context: { params: { id: number } }) => {
       totalCount: data.totalCount,
       id,
       count,
+      seoImage,
+      seoUrl,
     },
   };
 };

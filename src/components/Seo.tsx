@@ -8,15 +8,18 @@ type SeoProps = {
   data: SeoData;
 };
 const Seo: FC<SeoProps> = ({ data }) => {
-  const description = data.description.substr(0, DESCRIPTION_MAX_STR) + "...";
+  const threePointLeader = data.description.length < 100 ? "" : "...";
+  const description =
+    data.description.substr(0, DESCRIPTION_MAX_STR) + threePointLeader;
+
   return (
     <Head>
       <title>{data.title}</title>
-      <meta name="description" content={data.description} />
+      <meta name="description" content={description} />
       <meta property="og:title" content={data.title} />
       <meta property="og:url" content={data.url} />
       <meta property="og:site_name" content={data.title} />
-      <meta property="og:description" content={data.description} />
+      <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={data.image.url} />
       <meta name="twitter:card" content="summary_large_image" />
