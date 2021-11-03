@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
 import styles from "./ContactSection.module.scss";
 import { useForm } from "react-hook-form";
 import Button from "@mui/material/Button";
@@ -14,7 +14,11 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
     reset,
     formState: { errors },
   } = useForm();
-  const handleRequset = (forms: any) => {
+  const handleRequset = (forms: {
+    name: string;
+    email: string;
+    body: string;
+  }) => {
     const WRITE_API_KEY = process.env.NEXT_PUBLIC_WRITE_API_KEY
       ? process.env.NEXT_PUBLIC_WRITE_API_KEY
       : "";
@@ -30,6 +34,7 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
     fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/contact`, data)
       .then((response) => {
         if (!response.ok) {
+          // eslint-disable-next-line no-console
           console.error("サーバーエラー");
           return;
         }
@@ -42,6 +47,7 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
         setIsContact(true);
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.error("通信に失敗しました", error);
       });
   };

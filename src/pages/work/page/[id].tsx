@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { fetcher } from "utils/fetcher";
 import Pagination from "@mui/material/Pagination";
 import { WorkData, SeoData, ImageProps } from "types/api";
@@ -47,7 +47,7 @@ const WorkPageId: FC<WorkPageIdProps> = ({
         <div className="inner">
           <h1 className={detailStyles.title}>お仕事ポートフォリオ</h1>
           <div className={workStyles.work}>
-            {blog.map((item: any) => (
+            {blog.map((item) => (
               <WorkItem item={item} key={item.id} />
             ))}
           </div>

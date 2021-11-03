@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import Image from "next/image";
 import yottaStand from "images/yotta_stand.png";
 import styles from "./ProfileSection.module.scss";

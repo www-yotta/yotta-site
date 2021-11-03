@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import styles from "./YouTubeSection.module.scss";
 import { YoutubeData } from "types/api";
 import Button from "@mui/material/Button";

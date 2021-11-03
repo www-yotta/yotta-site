@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import Link from "next/link";
 import styles from "./BlogSection.module.scss";
 import { BlogData } from "types/api";

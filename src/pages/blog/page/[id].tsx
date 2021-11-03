@@ -1,5 +1,4 @@
-import { FC } from "react";
-import Head from "next/head";
+import React, { FC } from "react";
 import { fetcher } from "utils/fetcher";
 import Pagination from "@mui/material/Pagination";
 import { BlogData, SeoData, ImageProps } from "types/api";
