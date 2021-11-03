@@ -51,7 +51,7 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
       <div className="inner">
         <h2 className="title">お問い合わせ</h2>
         <p className="description">
-          お仕事の依頼などありましたら下記フォームからご連絡ください。
+          何かありましたら下記フォームからご連絡ください。
         </p>
         <div className={styles.contact}>
           <div className={styles.inputGroup}>

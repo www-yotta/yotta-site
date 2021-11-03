@@ -3,6 +3,10 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "theme";
+import * as gtag from "../lib/gtag";
+import Router from "next/router";
+
+Router.events.on("routeChangeComplete", (url) => gtag.pageview(url));
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,6 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
