@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import React, { NextPage } from "next";
 import Image from "next/image";
 import mv from "images/mv_bg.png";
 import yotta from "images/yotta_up.png";

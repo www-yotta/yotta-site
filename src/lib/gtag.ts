@@ -1,4 +1,5 @@
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
+export const UA_TRACKING_ID = process.env.NEXT_PUBLIC_UA_ID;
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string) => {
@@ -6,11 +7,25 @@ export const pageview = (url: string) => {
   window.gtag("config", GA_TRACKING_ID, {
     page_path: url,
   });
+  if (!UA_TRACKING_ID) return;
+  window.gtag("config", UA_TRACKING_ID, {
+    page_path: url,
+  });
 };
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
-export const event = ({ action, category, label, value }: any) => {
-  if (!GA_TRACKING_ID) return;
+export const event = ({
+  action,
+  category,
+  label,
+  value,
+}: {
+  action: string;
+  category: string;
+  label: string;
+  value: number;
+}) => {
+  if (!GA_TRACKING_ID || !UA_TRACKING_ID) return;
   window.gtag("event", action, {
     event_category: category,
     event_label: label,

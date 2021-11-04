@@ -1,3 +1,4 @@
+import React from "react";
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import { fetcher } from "utils/fetcher";
 import { BlogData, SeoData } from "types/api";

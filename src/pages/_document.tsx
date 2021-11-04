@@ -1,5 +1,6 @@
+import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { GA_TRACKING_ID } from "../lib/gtag";
+import { GA_TRACKING_ID, UA_TRACKING_ID } from "../lib/gtag";
 
 class MyDocument extends Document {
   render() {
@@ -18,6 +19,9 @@ class MyDocument extends Document {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+            gtag('config', '${UA_TRACKING_ID}', {
               page_path: window.location.pathname,
             });
           `,
