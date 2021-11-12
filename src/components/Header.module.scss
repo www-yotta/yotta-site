@@ -42,11 +42,8 @@
 .nav {
   height: 100%;
   @media screen and (max-width: 991px) {
-    width: 100%;
-    height: 60px;
-  }
-  @media screen and (max-width: 576px) {
-    height: 100%;
+    display: flex;
+    align-items: center;
   }
   &Open {
     height: 200%;
@@ -58,13 +55,9 @@
   text-align: center;
   gap: 2rem;
   @media screen and (max-width: 991px) {
-    justify-content: space-around;
-    padding: 20px;
-  }
-  @media screen and (max-width: 576px) {
-    justify-content: flex-start;
     flex-direction: column;
-    background-color: #eee;
+    padding: 20px;
+    height: auto;
   }
   li {
     height: 100%;
@@ -72,9 +65,18 @@
       display: flex;
       align-items: center;
       height: 100%;
+      @media screen and (max-width: 991px) {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
     }
     &:hover {
       border-bottom: 5px solid #13223c;
+      @media screen and (max-width: 991px) {
+        border-bottom: 2px solid #13223c;
+      }
     }
   }
 }
@@ -90,4 +92,12 @@
   @media screen and (max-width: 991px) {
     display: flex;
   }
+}
+
+.drawerHeader {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 15px;
+  padding-right: 15px;
 }

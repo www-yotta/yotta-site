@@ -21,15 +21,17 @@ const YoutubeSection: FC<YoutubeSectionProps> = ({ data, ...props }) => {
           {data?.map((item) => {
             return (
               <div className={styles.youtubeItem} key={item.id}>
-                <iframe
-                  width={320}
-                  height={180}
-                  src={`https://www.youtube.com/embed/${item.movieId}`}
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                <div className={styles.youtubeItemRectangle}>
+                  <iframe
+                    width={320}
+                    height={180}
+                    src={`https://www.youtube.com/embed/${item.movieId}`}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             );
           })}
@@ -52,7 +54,7 @@ const YoutubeSection: FC<YoutubeSectionProps> = ({ data, ...props }) => {
             target="_blank"
             rel="noreferrer"
           >
-            ゲーム実況を見る
+            プログラミングを学んでみる
           </Button>
         </div>
       </div>
