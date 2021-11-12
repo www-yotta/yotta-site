@@ -48,6 +48,20 @@ export const workMock: Mock[] = [
       width: 320,
     },
   },
+  {
+    id: "nw3kb5_7f",
+    createdAt: "2021-10-24T05:09:21.125Z",
+    updatedAt: "2021-10-24T05:31:30.819Z",
+    publishedAt: "2021-10-24T05:09:21.125Z",
+    revisedAt: "2021-10-24T05:31:30.819Z",
+    title: "未定",
+    description: "少々お待ちください。",
+    image: {
+      url: "https://placehold.jp/320x320.png",
+      height: 320,
+      width: 320,
+    },
+  },
 ];
 
 export default function handler(_: NextApiRequest, res: NextApiResponse) {
