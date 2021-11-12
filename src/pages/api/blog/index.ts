@@ -32,6 +32,34 @@ export const blogMock: Mock[] = [
       width: 320,
     },
   },
+  {
+    id: "2",
+    createdAt: "2021-10-21T10:53:19.968Z",
+    updatedAt: "2021-10-24T07:13:44.565Z",
+    publishedAt: "2021-10-21T10:53:19.968Z",
+    revisedAt: "2021-10-24T07:13:44.565Z",
+    title: "サンプルタイトル",
+    body: "<p>こんばんは。三波ヨタです。<br>これはサンプルのブログ記事です。<br>めちゃめちゃ長い文を書いたらどんな表示やデータの取得になるかを確認したいので、てきとうな長さの文を今必死で書いています。</p>",
+    image: {
+      url: "https://placehold.jp/320x320.png",
+      height: 180,
+      width: 320,
+    },
+  },
+  {
+    id: "2",
+    createdAt: "2021-10-21T10:53:19.968Z",
+    updatedAt: "2021-10-24T07:13:44.565Z",
+    publishedAt: "2021-10-21T10:53:19.968Z",
+    revisedAt: "2021-10-24T07:13:44.565Z",
+    title: "サンプルタイトル",
+    body: "<p>こんばんは。三波ヨタです。<br>これはサンプルのブログ記事です。<br>めちゃめちゃ長い文を書いたらどんな表示やデータの取得になるかを確認したいので、てきとうな長さの文を今必死で書いています。</p>",
+    image: {
+      url: "https://placehold.jp/320x320.png",
+      height: 180,
+      width: 320,
+    },
+  },
 ];
 export default function handler(_: NextApiRequest, res: NextApiResponse) {
   res.status(200).json({
