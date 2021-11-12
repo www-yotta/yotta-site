@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["images.microcms-assets.io", "placehold.jp"],
+    domains: ["images.microcms-assets.io", "placehold.jp", "img.youtube.com"],
   },
 };
