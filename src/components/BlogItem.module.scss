@@ -3,9 +3,11 @@
     display: flex;
     flex-direction: column;
     width: 320px;
-    height: 380px;
     border: 1px solid #13223c;
     border-radius: 4px;
+    @media screen and (min-width: 577px) and (max-width: 991px) {
+      width: calc(33% + 1% / 3 - 13.3333px);
+    }
     &Image {
       width: 100%;
       border-radius: 4px 4px 0 0;
@@ -33,6 +35,7 @@
       width: 100%;
       display: flex;
       justify-content: flex-end;
+      padding-top: 20px;
     }
     &Link {
       width: 110px;
