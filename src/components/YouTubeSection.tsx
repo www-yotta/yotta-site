@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styles from "./YouTubeSection.module.scss";
 import { YoutubeData } from "types/api";
 import Button from "@mui/material/Button";
+import { YoutubeItem } from "components/YouTubeItem";
 
 type YoutubeSectionProps = {
   id: string;
@@ -19,21 +20,7 @@ const YoutubeSection: FC<YoutubeSectionProps> = ({ data, ...props }) => {
         </p>
         <div className={styles.youtubeContent}>
           {data?.map((item) => {
-            return (
-              <div className={styles.youtubeItem} key={item.id}>
-                <div className={styles.youtubeItemRectangle}>
-                  <iframe
-                    width={320}
-                    height={180}
-                    src={`https://www.youtube.com/embed/${item.movieId}`}
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </div>
-            );
+            return <YoutubeItem item={item} key={item.id} />;
           })}
         </div>
         <div className={styles.linkWrap}>
