@@ -4,4 +4,7 @@ module.exports = {
   images: {
     domains: ["images.microcms-assets.io", "placehold.jp", "img.youtube.com"],
   },
+  eslint: {
+    dirs: ["src", "cypress"],
+  },
 };
