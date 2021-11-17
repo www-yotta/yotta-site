@@ -31,7 +31,7 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
       body: JSON.stringify(forms),
     };
 
-    fetch("/api/contact", data)
+    fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/contact`, data)
       .then((response) => {
         if (!response.ok) {
           // eslint-disable-next-line no-console

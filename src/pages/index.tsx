@@ -1,5 +1,5 @@
 import React from "react";
-import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import styles from "./Home.module.scss";
 import Header from "components/Header";
@@ -44,11 +44,6 @@ const Home: NextPage<HomeProps> = ({
       <Footer />
     </main>
   );
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = ["/api/contact", "/api/youtube"];
-  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async () => {
