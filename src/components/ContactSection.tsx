@@ -21,6 +21,9 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
   }) => {
     const data = {
       method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(forms),
     };
 

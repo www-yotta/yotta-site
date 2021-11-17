@@ -15,7 +15,7 @@ const contact = async (
   const content = await fetch(`https://yotta.microcms.io/api/v1/contact/`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json; charset=utf-8",
+      "Content-Type": "application/json",
       "X-WRITE-API-KEY": WRITE_API_KEY,
     },
     body: JSON.stringify(req.body),
