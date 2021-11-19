@@ -19,19 +19,15 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
     email: string;
     body: string;
   }) => {
-    const WRITE_API_KEY = process.env.NEXT_PUBLIC_WRITE_API_KEY
-      ? process.env.NEXT_PUBLIC_WRITE_API_KEY
-      : "";
     const data = {
       method: "post",
       headers: {
         "Content-Type": "application/json",
-        "X-WRITE-API-KEY": WRITE_API_KEY,
       },
       body: JSON.stringify(forms),
     };
 
-    fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/contact`, data)
+    fetch("/api/contact", data)
       .then((response) => {
         if (!response.ok) {
           // eslint-disable-next-line no-console
