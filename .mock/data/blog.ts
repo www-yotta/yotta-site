@@ -1,9 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { BlogData } from "types/api";
-import { Result } from "types/microcms";
-
-export type Mock = BlogData & Result;
-export const blogMock: Mock[] = [
+export const blogMock = [
   {
     id: "1",
     createdAt: "2021-10-21T10:55:23.851Z",
@@ -33,7 +28,7 @@ export const blogMock: Mock[] = [
     },
   },
   {
-    id: "2",
+    id: "3",
     createdAt: "2021-10-21T10:53:19.968Z",
     updatedAt: "2021-10-24T07:13:44.565Z",
     publishedAt: "2021-10-21T10:53:19.968Z",
@@ -47,7 +42,7 @@ export const blogMock: Mock[] = [
     },
   },
   {
-    id: "2",
+    id: "4",
     createdAt: "2021-10-21T10:53:19.968Z",
     updatedAt: "2021-10-24T07:13:44.565Z",
     publishedAt: "2021-10-21T10:53:19.968Z",
@@ -61,11 +56,3 @@ export const blogMock: Mock[] = [
     },
   },
 ];
-export default function handler(_: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({
-    contents: blogMock,
-    totalCount: blogMock.length,
-    offset: 0,
-    limit: 10, // microCMSのデフォルト
-  });
-}
