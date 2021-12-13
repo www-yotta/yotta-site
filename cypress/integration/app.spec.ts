@@ -1,13 +1,22 @@
 describe("Navigation", () => {
-  // このファイルのすべてのテストの前に実行されるやつ
+  // このファイルのすべてのテストの前に実行される
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
   });
-  it("should navigate to the work list page", () => {
-    cy.getBySel("YouTubeItem").first().click();
+  it("ページの内部ナビゲーション", () => {
+    cy.getBySel("ProfileMenu").click();
+    cy.url().should("include", "#profile");
 
-    // cy.get('a[href*="/work/page/1"]').click();
-    // cy.url().should("include", "/work/page/1");
-    // cy.get("h1").contains("お仕事ポートフォリオ");
+    cy.getBySel("YoutubeMenu").click();
+    cy.url().should("include", "#youtube");
+
+    cy.getBySel("WorkMenu").click();
+    cy.url().should("include", "#work");
+
+    cy.getBySel("BlogMenu").click();
+    cy.url().should("include", "#blog");
+
+    cy.getBySel("ContactMenu").click();
+    cy.url().should("include", "#contact");
   });
 });

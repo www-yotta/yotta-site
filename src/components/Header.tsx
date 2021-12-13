@@ -56,27 +56,27 @@ const Header: FC = () => {
             <ul className={clsx(styles.menu)}>
               <li onClick={() => setMenuToggle(false)}>
                 <Link href="/#profile">
-                  <a>プロフィール</a>
+                  <a data-testid="ProfileMenu">プロフィール</a>
                 </Link>
               </li>
               <li onClick={() => setMenuToggle(false)}>
                 <Link href="/#youtube">
-                  <a>YouTube</a>
+                  <a data-testid="YoutubeMenu">YouTube</a>
                 </Link>
               </li>
               <li onClick={() => setMenuToggle(false)}>
                 <Link href="/#work">
-                  <a>仕事</a>
+                  <a data-testid="WorkMenu">仕事</a>
                 </Link>
               </li>
               <li onClick={() => setMenuToggle(false)}>
                 <Link href="/#blog">
-                  <a>ブログ</a>
+                  <a data-testid="BlogMenu">ブログ</a>
                 </Link>
               </li>
               <li onClick={() => setMenuToggle(false)}>
                 <Link href="/#contact">
-                  <a>お問い合わせ</a>
+                  <a data-testid="ContactMenu">お問い合わせ</a>
                 </Link>
               </li>
             </ul>
