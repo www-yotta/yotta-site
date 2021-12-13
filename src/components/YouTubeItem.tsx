@@ -11,12 +11,13 @@ export const YoutubeItem: FC<YoutubeItemProps> = ({ item }) => {
   const [isThumbnail, setIsThumbnail] = useState<boolean>(true);
 
   return (
-    <div className={styles.youtubeItem}>
+    <div className={styles.youtubeItem} data-testid="YouTubeItem">
       <div className={styles.youtubeItemRectangle}>
         {isThumbnail ? (
           <div
             className={styles.youtubeImage}
             onClick={() => setIsThumbnail(false)}
+            data-testid="youtubeThumbnail"
           >
             <Image
               width={320}
@@ -39,6 +40,7 @@ export const YoutubeItem: FC<YoutubeItemProps> = ({ item }) => {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
+            data-testid="youtubeFrame"
           ></iframe>
         )}
       </div>

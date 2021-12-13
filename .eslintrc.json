@@ -3,8 +3,9 @@
     "next",
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended"
+    "plugin:cypress/recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
     "@next/next/no-document-import-in-page": "off",
@@ -12,5 +13,6 @@
     "no-console": "warn",
     "react/prop-types": "off",
     "import/named": "error"
-  }
+  },
+  "plugins": ["cypress"]
 }
