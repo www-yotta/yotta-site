@@ -7,4 +7,5 @@ module.exports = {
   eslint: {
     dirs: ["src", "cypress"],
   },
+  presets: ["@babel/preset-env", "@babel/preset-react"],
 };
