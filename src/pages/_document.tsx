@@ -1,6 +1,6 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { GA_TRACKING_ID, UA_TRACKING_ID } from "../lib/gtag";
+import { PUBLIC_GA_ID, PUBLIC_UA_ID } from "../utils/constants";
 
 class MyDocument extends Document {
   render() {
@@ -10,7 +10,7 @@ class MyDocument extends Document {
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GA_ID}`}
           />
           <script
             dangerouslySetInnerHTML={{
@@ -18,10 +18,10 @@ class MyDocument extends Document {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
+            gtag('config', '${PUBLIC_GA_ID}', {
               page_path: window.location.pathname,
             });
-            gtag('config', '${UA_TRACKING_ID}', {
+            gtag('config', '${PUBLIC_UA_ID}', {
               page_path: window.location.pathname,
             });
           `,

@@ -1,9 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { SeoData } from "types/api";
-import { Result } from "types/microcms";
-
-export type Mock = SeoData & Result;
-export const seoMock: Mock = {
+export const seoMock = {
   id: "0eg1fo_a4i1",
   createdAt: "2021-10-23T15:26:26.302Z",
   updatedAt: "2021-10-24T05:23:12.428Z",
@@ -19,7 +14,3 @@ export const seoMock: Mock = {
   },
   url: "https://elated-spence-b80c1a.netlify.app/",
 };
-
-export default function handler(_: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json(seoMock);
-}

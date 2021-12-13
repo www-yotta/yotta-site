@@ -1,9 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { YoutubeData } from "types/api";
-import { Result } from "types/microcms";
-
-export type Mock = YoutubeData & Result;
-export const youtubeMock: Mock[] = [
+export const youtubeMock = [
   {
     id: "o5cjk6tc8tl",
     createdAt: "2021-10-24T05:51:42.047Z",
@@ -59,12 +54,3 @@ export const youtubeMock: Mock[] = [
     memo: "ホロウナイトのパート1",
   },
 ];
-
-export default function handler(_: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({
-    contents: youtubeMock,
-    totalCount: youtubeMock.length,
-    offset: 0,
-    limit: 10, // microCMSのデフォルト
-  });
-}

@@ -7,6 +7,10 @@ import { theme } from "theme";
 import * as gtag from "../lib/gtag";
 import Router from "next/router";
 
+if (process.env.NODE_ENV === "development") {
+  require("../../.mock");
+}
+
 Router.events.on("routeChangeComplete", (url) => gtag.pageview(url));
 
 function MyApp({ Component, pageProps }: AppProps) {

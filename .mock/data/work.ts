@@ -1,9 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { WorkData } from "types/api";
-import { Result } from "types/microcms";
-
-export type Mock = WorkData & Result;
-export const workMock: Mock[] = [
+export const workMock = [
   {
     id: "0eg1fo_a4i1",
     createdAt: "2021-10-23T15:26:26.302Z",
@@ -49,7 +44,7 @@ export const workMock: Mock[] = [
     },
   },
   {
-    id: "nw3kb5_7f",
+    id: "nw3kb5_8f",
     createdAt: "2021-10-24T05:09:21.125Z",
     updatedAt: "2021-10-24T05:31:30.819Z",
     publishedAt: "2021-10-24T05:09:21.125Z",
@@ -63,12 +58,3 @@ export const workMock: Mock[] = [
     },
   },
 ];
-
-export default function handler(_: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({
-    contents: workMock,
-    totalCount: workMock.length,
-    offset: 0,
-    limit: 10, // microCMSのデフォルト
-  });
-}
