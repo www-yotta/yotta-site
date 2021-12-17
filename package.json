@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "lint-staged",
     "prepare": "husky install",
     "cypress": "cypress open"
   },
@@ -42,8 +42,10 @@
     "typescript-plugin-css-modules": "^3.4.0"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --fix",
-    "*": "prettier --write"
+    "*.{js,jsx,ts,tsx}": "eslint",
+    "*": [
+      "git secrets --scan"
+    ]
   },
   "msw": {
     "workerDirectory": "public"
