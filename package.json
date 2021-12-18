@@ -9,7 +9,7 @@
     "lint": "lint-staged",
     "prepare": "husky install",
     "cypress": "cypress open",
-    "test": "jest"
+    "test": "jest --coverage --silent"
   },
   "dependencies": {
     "@emotion/react": "^11.5.0",

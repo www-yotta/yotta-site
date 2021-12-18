@@ -1,7 +1,11 @@
 module.exports = {
   preset: "ts-jest",
   setupFilesAfterEnv: ["<rootDir>/__test__/setupTests.tsx"],
-  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+  testPathIgnorePatterns: [
+    "<rootDir>/.next/",
+    "<rootDir>/node_modules/",
+    "<rootDir>/cypress/",
+  ],
   moduleNameMapper: {
     "\\.(css|scss)$": "<rootDir>/node_modules/jest-css-modules",
   },
