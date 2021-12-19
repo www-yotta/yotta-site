@@ -11,7 +11,7 @@ afterEach(() => cleanup());
 
 it("'作品を見る'が表示される", () => {
   render(<WorkItem item={workMock[0]} />);
-  expect(screen.getByTestId("showLink").children).toHaveLength(2);
+  expect(screen.getByTestId("showLink").children).toHaveLength(3);
   expect(screen.getByTestId("showLink").children[0].textContent).toBe(
     "作品を見る"
   );
