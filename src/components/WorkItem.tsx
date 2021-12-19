@@ -23,7 +23,7 @@ const WorkSection: FC<WorkSection> = ({ item }) => {
         <div className={styles.workItemDescription}>
           <h3 className={styles.workItemTitle}>{item.title}</h3>
           <p>{item.description}</p>
-          <div className={styles.workItemLink}>
+          <div className={styles.workItemLink} data-testid="showLink">
             {item.url && (
               <a
                 href={item.url}

@@ -11,7 +11,7 @@ export const YoutubeItem: FC<YoutubeItemProps> = ({ item }) => {
   const [isThumbnail, setIsThumbnail] = useState<boolean>(true);
 
   return (
-    <div className={styles.youtubeItem} data-testid="YouTubeItem">
+    <div className={styles.youtubeItem}>
       <div className={styles.youtubeItemRectangle}>
         {isThumbnail ? (
           <div
