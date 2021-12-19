@@ -18,7 +18,7 @@ afterEach(() => {
 });
 afterAll(() => server.close());
 
-it("トップaページ", async () => {
+it("トップページ", async () => {
   const { page } = await getPage({
     route: "/",
   });
