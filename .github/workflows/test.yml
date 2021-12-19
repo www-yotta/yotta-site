@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Vercel Deploy CI
 
 on: push
@@ -11,5 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Run yarn install
+        run: yarn install
       - name: Run tests
         run: yarn test
