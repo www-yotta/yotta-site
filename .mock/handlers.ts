@@ -36,7 +36,7 @@ export const handlers = [
   rest.get("http://localhost:3000/api/v1/seo", (_, res, ctx) => {
     return res(ctx.json(seoMock));
   }),
-  rest.post("http://localhost:3000/api/v1/contact", (_, res, ctx) => {
+  rest.post("/api/contact", (_, res, ctx) => {
     return res(ctx.status(200));
   }),
 ];

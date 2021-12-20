@@ -2,24 +2,11 @@
  * @jest-environment jsdom
  */
 import React from "react";
-import {
-  render,
-  screen,
-  cleanup,
-  fireEvent,
-  waitFor,
-} from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import userEvent from "@testing-library/user-event";
 import ContactSection from "../src/components/ContactSection";
 import { server } from "../.mock/server";
-
-beforeAll(() => server.listen());
-afterEach(() => {
-  server.resetHandlers();
-  cleanup();
-});
-afterAll(() => server.close());
 
 it("バリデーションチェック 入力必須", async () => {
   render(<ContactSection id="contact" />);
@@ -49,8 +36,8 @@ it("バリデーションチェック メールアドレス", async () => {
   );
 });
 
-// TODO: モックのレスポンスによって出しわけるテストを書く
 it("メール送信で成功テキストが表示される", async () => {
+  server.listen();
   render(<ContactSection id="contact" />);
   const inputName = screen.getByTestId("inputName");
   const inputEmail = screen.getByTestId("inputEmail");
@@ -66,4 +53,5 @@ it("メール送信で成功テキストが表示される", async () => {
   await waitFor(() =>
     expect(screen.queryByTestId("successMessage")).toBeInTheDocument()
   );
+  server.close();
 });
