@@ -63,6 +63,7 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
             <input
               id="name"
               type="text"
+              data-testid="inputName"
               {...register("name", { required: true })}
             />
             {errors.name?.type === "required" && (
@@ -76,6 +77,7 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
             <input
               id="email"
               type="text"
+              data-testid="inputEmail"
               {...register("email", {
                 required: true,
                 pattern:
@@ -97,6 +99,7 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
             </label>
             <textarea
               id="body"
+              data-testid="inputTextarea"
               {...register("body", { required: true })}
               rows={10}
             ></textarea>
@@ -112,7 +115,7 @@ const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
             送信
           </Button>
           {isContact && (
-            <p className={styles.completeMessage}>
+            <p className={styles.completeMessage} data-testid="successMessage">
               送信が完了しました。
               <br />
               お問い合わせありがとうございます。

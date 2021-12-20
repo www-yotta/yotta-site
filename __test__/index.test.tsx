@@ -23,6 +23,5 @@ it("トップページ", async () => {
     route: "/",
   });
   render(page);
-  screen.debug();
   expect(screen.getByText("サンプル2")).toBeInTheDocument();
 });
