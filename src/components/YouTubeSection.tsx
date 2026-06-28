@@ -14,9 +14,8 @@ const YoutubeSection: FC<YoutubeSectionProps> = ({ data, ...props }) => {
       <div className="inner">
         <h2 className="title">YouTube</h2>
         <p className="description">
-          ゲーム実況をメインで活動しており、2Dゲームを中心に配信しています。3D酔いをしてしまうので、
-          最近のゲームは中々できませんが、FallsGuysだけは何故かできます。
-          プログラミングの情報を発信しているチャンネルもあり、不定期で更新しています。
+          ゲーム実況をメインで活動しており、最近はストリートファイター6にハマっています。
+          ライブ配信もたまにやっているのでぜひ遊びに来てください。
         </p>
         <div className={styles.youtubeContent}>
           {data?.map((item) => {

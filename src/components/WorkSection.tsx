@@ -13,11 +13,11 @@ const WorkSection: FC<WorkSection> = ({ data, ...props }) => {
   return (
     <section className={styles.root} {...props}>
       <div className="inner">
-        <h2 className="title">お仕事</h2>
+        <h2 className="title">作ったもの</h2>
         <p className="description">
           お仕事としてフロントエンドエンジニアもしています。
           得意な言語は、HTML/CSS,JavaScript,jQuery,React,TypeScript,Next.jsなど。
-          個人開発で作成したものの一部を載せておきます。
+          個人開発で作成した一部を載せておきます。
         </p>
         <div className={styles.work}>
           {data?.map((item) => {

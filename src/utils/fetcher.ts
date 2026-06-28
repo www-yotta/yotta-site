@@ -15,14 +15,23 @@ export const fetcher = <T>(
   option?: optionProps
 ): Promise<T> => {
   const { limit, offset } = option || initialOption;
-  const data = fetch(
-    `${API_ENDPOINT}${content}?limit=${limit}&offset=${offset}`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-        "X-MICROCMS-API-KEY": GET_API_KEY,
-      },
-    }
-  ).then((r) => r.json());
-  return data;
+  return fetch(`${API_ENDPOINT}${content}?limit=${limit}&offset=${offset}`, {
+    headers: {
+      "Content-Type": "application/json",
+      "X-MICROCMS-API-KEY": GET_API_KEY,
+    },
+  })
+    .then((r) => {
+      console.log("r", r);
+      if (!r.ok) {
+        throw new Error(`Request failed with status ${r.status}`);
+      }
+      return r.json();
+    })
+    .catch(() => ({
+      contents: [],
+      totalCount: 0,
+      offset: offset ?? 0,
+      limit: limit ?? 9,
+    } as T));
 };

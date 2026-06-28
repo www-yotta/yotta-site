@@ -37,14 +37,14 @@ const WorkDetail: NextPage<WorkDetailProps> = ({ workData, seoData }) => {
               サイト：
               {workData.url && (
                 <Link href={workData.url}>
-                  <a>{workData.url}</a>
+                  {workData.url}
                 </Link>
               )}
             </p>
           </div>
         </div>
-        <Link href="/work/page/1">
-          <a className={styles.topLink}>一覧に戻る</a>
+        <Link href="/work/page/1"className={styles.topLink}>
+          一覧に戻る
         </Link>
         <Footer />
       </div>

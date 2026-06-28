@@ -7,7 +7,8 @@ const contact = async (
   res: NextApiResponse
 ): Promise<void> => {
   if (!isContact(req.body) || typeof WRITE_API_KEY === "undefined") {
-    return res.status(404).end();
+    res.status(404).end();
+    return;
   }
 
   const content = await fetch(`${API_ENDPOINT}/contact`, {
@@ -22,7 +23,8 @@ const contact = async (
     .catch(() => null);
 
   if (content !== "Created") {
-    return res.status(401).json({ message: "Unauthorized" });
+    res.status(401).json({ message: "Unauthorized" });
+    return;
   }
 
   res.status(200).json({ message: "OK" });

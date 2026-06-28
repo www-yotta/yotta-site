@@ -40,9 +40,7 @@ const Header: FC = () => {
       <div className={styles.inner}>
         <div className={styles.innerLeft}>
           <Link href="/">
-            <a>
-              <Image src={logo} height={40} objectFit="contain" alt="ロゴ" />
-            </a>
+            <Image src={logo} height={40} objectFit="contain" alt="ロゴ" />
           </Link>
           <div
             className={styles.menuButton}
@@ -55,28 +53,28 @@ const Header: FC = () => {
           <nav className={clsx(styles.nav)}>
             <ul className={clsx(styles.menu)}>
               <li onClick={() => setMenuToggle(false)}>
-                <Link href="/#profile">
-                  <a data-testid="ProfileMenu">プロフィール</a>
+                <Link href="/#profile"data-testid="ProfileMenu">
+                  プロフィール
                 </Link>
               </li>
               <li onClick={() => setMenuToggle(false)}>
-                <Link href="/#youtube">
-                  <a data-testid="YoutubeMenu">YouTube</a>
+                <Link href="/#youtube"data-testid="YoutubeMenu">
+                  YouTube
                 </Link>
               </li>
               <li onClick={() => setMenuToggle(false)}>
-                <Link href="/#work">
-                  <a data-testid="WorkMenu">仕事</a>
+                <Link href="/#work"data-testid="WorkMenu">
+                  仕事
                 </Link>
               </li>
               <li onClick={() => setMenuToggle(false)}>
-                <Link href="/#blog">
-                  <a data-testid="BlogMenu">ブログ</a>
+                <Link href="/#blog"data-testid="BlogMenu">
+                  ブログ
                 </Link>
               </li>
               <li onClick={() => setMenuToggle(false)}>
-                <Link href="/#contact">
-                  <a data-testid="ContactMenu">お問い合わせ</a>
+                <Link href="/#contact"data-testid="ContactMenu">
+                  お問い合わせ
                 </Link>
               </li>
             </ul>
