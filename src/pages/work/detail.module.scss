@@ -18,8 +18,13 @@
     @media screen and (max-width: 576px) {
       width: 100%;
     }
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
   }
   &Detail {
+    word-break: break-all;
     width: 50%;
     padding: 10px;
     @media screen and (max-width: 576px) {
