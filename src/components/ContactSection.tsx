@@ -8,17 +8,19 @@ type ContactSectionProps = {
 };
 const ContactSection: FC<ContactSectionProps> = ({ ...props }) => {
   const [isContact, setIsContact] = useState<boolean>(false);
+  type ContactFormValues = {
+    name: string;
+    email: string;
+    body: string;
+  };
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
-  const handleRequset = (forms: {
-    name: string;
-    email: string;
-    body: string;
-  }) => {
+  } = useForm<ContactFormValues>();
+  const handleRequset = (forms: ContactFormValues) => {
     const data = {
       method: "post",
       headers: {

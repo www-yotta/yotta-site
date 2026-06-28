@@ -39,8 +39,8 @@ const BlogDetail: NextPage<BlogDetailProps> = ({ blogData, seoData }) => {
           ></div>
         </div>
       </div>
-      <Link href="/blog/page/1">
-        <a className={styles.topLink}>一覧に戻る</a>
+      <Link href="/blog/page/1"className={styles.topLink}>
+        一覧に戻る
       </Link>
       <Footer />
     </main>

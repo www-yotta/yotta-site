@@ -1,11 +1,22 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["images.microcms-assets.io", "placehold.jp", "img.youtube.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.microcms-assets.io",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.jp",
+      },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+      },
+    ],
   },
-  eslint: {
-    dirs: ["src", "cypress", "__test__"],
-  },
-  presets: ["@babel/preset-env", "@babel/preset-react"],
 };
+
+module.exports = nextConfig;
